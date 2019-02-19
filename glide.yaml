@@ -1,0 +1,8 @@
+package: github.com/halkeye/helm-repo-html
+import:
+- package: github.com/sirupsen/logrus
+  version: ^1.3.0
+- package: github.com/spf13/cobra
+  version: ^0.0.3
+- package: gopkg.in/yaml.v2
+  version: ^2.2.2
