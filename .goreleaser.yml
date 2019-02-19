@@ -15,9 +15,9 @@ archive:
     - README.md
     - plugin.yaml
   replacements:
-    darwin: Darwin
-    linux: Linux
-    windows: Windows
+    darwin: darwin
+    linux: linux
+    windows: windows
     386: i386
     amd64: x86_64
 checksum:

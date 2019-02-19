@@ -20,10 +20,10 @@ initArch() {
     armv6*) ARCH="armv6";;
     armv7*) ARCH="armv7";;
     aarch64) ARCH="arm64";;
-    x86) ARCH="386";;
-    x86_64) ARCH="amd64";;
-    i686) ARCH="386";;
-    i386) ARCH="386";;
+    x86) ARCH="i386";;
+    x86_64) ARCH="x86_64";;
+    i686) ARCH="i386";;
+    i386) ARCH="i386";;
   esac
 }
 
