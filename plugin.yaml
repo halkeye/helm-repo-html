@@ -1,0 +1,11 @@
+---
+name: "repo html"
+version: "0.1.0"
+usage: "Outputs a nice html page for index.yaml"
+description: |-
+  Outputs a nice html page for index.yaml
+ignoreFlags: false
+useTunnel: false
+command: "$HELM_PLUGIN_DIR/bin/helm-repo-html"
+hooks:
+  install: "$HELM_PLUGIN_DIR/install-binary.sh"
