@@ -20,6 +20,8 @@ Check to see if there is an updated version available for installed charts.
 var outputFile string
 var inputFile string
 var version = "canary"
+var commit string
+var date string
 
 type ChartEntry struct {
 	ApiVersion  string    `yaml:"apiVersion"`
@@ -40,10 +42,22 @@ type Charts struct {
 
 func main() {
 	cmd := &cobra.Command{
-		Use:   "repo html [flags]",
+		Use:   "repo-html [flags]",
 		Short: fmt.Sprintf("Generates an html file for a repo (helm-repo-html %s)", version),
 		RunE:  run,
 	}
+
+	var versionCmd = &cobra.Command{
+		Use:   "version",
+		Short: "print current helm-repo-html version",
+		Long:  ``,
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println("version:", version)
+			fmt.Println("commit:", commit)
+			fmt.Println("date:", date)
+		},
+	}
+	cmd.AddCommand(versionCmd)
 
 	cmd.Flags().StringVarP(&outputFile, "output", "o", "index.html", "output filename")
 	cmd.Flags().StringVarP(&inputFile, "input", "i", "index.yaml", "input filename")
