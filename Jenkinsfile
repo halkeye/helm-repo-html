@@ -24,7 +24,7 @@ pipeline {
     stage('Build') {
       steps {
         dir('go/src/github.com/halkeye/helm-repo-html') {
-          sh "'$WORKSPACE/goreleaser' --snapshot --skip-publish --rm-dist"^
+          sh "'$WORKSPACE/goreleaser' --snapshot --skip-publish --rm-dist"
         }
       }
     }
