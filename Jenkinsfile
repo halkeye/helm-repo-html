@@ -9,10 +9,11 @@ pipeline {
     disableConcurrentBuilds()
   }
   stages {
-    environment {
-      GOPATH = "$WORKSPACE"
-    }
     stage('Install Tools') {
+      environment {
+        GOPATH = "$WORKSPACE"
+        GO111MODULE = "on"
+      }
       steps {
         sh 'go get github.com/goreleaser/goreleaser'
       }
@@ -20,6 +21,7 @@ pipeline {
     stage('Build') {
       environment {
         GO111MODULE = "on"
+        GOPATH = "$WORKSPACE"
       }
       steps {
         sh "'$GOPATH/bin/goreleaser' --snapshot --skip-publish --rm-dist"
@@ -28,6 +30,7 @@ pipeline {
     stage('Deploy') {
       environment {
         GO111MODULE = "on"
+        GOPATH = "$WORKSPACE"
         GITHUB = credentials('github-halkeye')
       }
       when { tag "v*" }
