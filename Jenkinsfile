@@ -33,8 +33,7 @@ pipeline {
       when { buildingTag() }
       steps {
         dir('go/src/github.com/halkeye/helm-repo-html') {
-          sh "export GITHUB_TOKEN=$GITHUB_PSW"
-          sh "'$WORKSPACE/goreleaser' --rm-dist"
+          sh "GITHUB_TOKEN=$GITHUB_PSW '$WORKSPACE/goreleaser' --rm-dist"
         }
       }
     }
