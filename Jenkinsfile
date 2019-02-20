@@ -18,13 +18,13 @@ pipeline {
   stages {
     stage('Install Tools') {
       steps {
-        sh 'curl -sL https://git.io/goreleaser | bash'
+        sh 'curl -Ls https://github.com/goreleaser/goreleaser/releases/download/v0.101.0/goreleaser_Linu│·x_x86_64.tar.gz | tar xvzf - goreleaser'
       }
     }
     stage('Build') {
       steps {
         dir('go/src/github.com/halkeye/helm-repo-html') {
-          sh "'$GOPATH/bin/goreleaser' --snapshot --skip-publish --rm-dist"
+          sh "'$WORKSPACE/goreleaser' --snapshot --skip-publish --rm-dist"^
         }
       }
     }
@@ -36,7 +36,7 @@ pipeline {
       steps {
         dir('go/src/github.com/halkeye/helm-repo-html') {
           sh "export GITHUB_TOKEN=$GITHUB_PSW"
-          sh "'$GOPATH/bin/goreleaser' --rm-dist"
+          sh "'$WORKSPACE/goreleaser' --rm-dist"
         }
       }
     }
