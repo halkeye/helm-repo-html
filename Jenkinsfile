@@ -18,7 +18,7 @@ pipeline {
   stages {
     stage('Install Tools') {
       steps {
-        sh 'wget -O - https://github.com/goreleaser/goreleaser/releases/download/v0.101.0/goreleaser_Linux_x86_64.tar.gz | tar xvfz - goreleaser'
+        sh 'wget -q -O - https://github.com/goreleaser/goreleaser/releases/download/v0.101.0/goreleaser_Linux_x86_64.tar.gz | tar xvfz - goreleaser'
       }
     }
     stage('Build') {
