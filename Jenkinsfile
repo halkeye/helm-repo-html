@@ -18,7 +18,6 @@ pipeline {
   stages {
     stage('Install Tools') {
       steps {
-        sh 'mkdir "$GOPATH"'
         sh 'go get github.com/goreleaser/goreleaser'
       }
     }
