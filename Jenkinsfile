@@ -18,7 +18,7 @@ pipeline {
   stages {
     stage('Install Tools') {
       steps {
-        sh 'curl -Ls https://github.com/goreleaser/goreleaser/releases/download/v0.101.0/goreleaser_Linu│·x_x86_64.tar.gz | tar xvzf - goreleaser'
+        sh 'curl -Lv https://github.com/goreleaser/goreleaser/releases/download/v0.101.0/goreleaser_Linu│·x_x86_64.tar.gz | tar xvzf - goreleaser'
       }
     }
     stage('Build') {
