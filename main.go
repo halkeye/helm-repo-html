@@ -23,8 +23,9 @@ var version = "canary"
 var commit string
 var date string
 
+// ChartEntry is an individual chart entry
 type ChartEntry struct {
-	ApiVersion  string    `yaml:"apiVersion"`
+	APIVersion  string    `yaml:"apiVersion"`
 	AppVersion  string    `yaml:"appVersion"`
 	Created     time.Time `yaml:"created"`
 	Description string    `yaml:"description"`
@@ -34,8 +35,9 @@ type ChartEntry struct {
 	Version     string    `yaml:"version"`
 }
 
+// Charts is a record of all charts and a few metadata
 type Charts struct {
-	ApiVersion string                  `yaml:"apiVersion"`
+	APIVersion string                  `yaml:"apiVersion"`
 	Entries    map[string][]ChartEntry `yaml:"entries"`
 	Generated  time.Time               `yaml:"generated"`
 }

@@ -9,3 +9,4 @@ useTunnel: false
 command: "$HELM_PLUGIN_DIR/bin/helm-repo-html"
 hooks:
   install: "$HELM_PLUGIN_DIR/install-binary.sh"
+  upgrade: "$HELM_PLUGIN_DIR/install-binary.sh"
