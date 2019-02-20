@@ -20,3 +20,7 @@ git add index.yaml index.html
 git commit -m "Update release"
 git push
 ```
+
+## Example
+
+https://halkeye.github.io/helm-charts/
