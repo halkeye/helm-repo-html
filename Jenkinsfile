@@ -29,10 +29,8 @@ pipeline {
       }
     }
     stage('Deploy') {
-      environment {
-        GITHUB = credentials('github-halkeye')
-      }
-      when { tag "v*" }
+      environment { GITHUB = credentials('github-halkeye') }
+      when { buildingTag() }
       steps {
         dir('go/src/github.com/halkeye/helm-repo-html') {
           sh "export GITHUB_TOKEN=$GITHUB_PSW"
