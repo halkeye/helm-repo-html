@@ -1,6 +1,6 @@
 ---
 name: "repo-html"
-version: "0.0.6"
+version: "0.0.7"
 usage: "Outputs a nice html page for index.yaml"
 description: |-
   Outputs a nice html page for index.yaml
