@@ -25,16 +25,33 @@ var version = "canary"
 var commit string
 var date string
 
+// MaintainerEntry is a list of maintainers for a chart
+type MaintainerEntry struct {
+	Email string `yaml:"email"`
+	Name  string `yaml:"name"`
+	Url   string `yaml:"url"`
+}
+
 // ChartEntry is an individual chart entry
 type ChartEntry struct {
-	APIVersion  string    `yaml:"apiVersion"`
-	AppVersion  string    `yaml:"appVersion"`
-	Created     time.Time `yaml:"created"`
-	Description string    `yaml:"description"`
-	Digest      string    `yaml:"digest"`
-	Name        string    `yaml:"name"`
-	Urls        []string  `yaml:"urls"`
-	Version     string    `yaml:"version"`
+	APIVersion    string            `yaml:"apiVersion"`
+	Name          string            `yaml:"name"`
+	Version       string            `yaml:"version"`
+	KubeVersion   string            `yaml:"kubeVersion"`
+	Description   string            `yaml:"description"`
+	Keywords      []string          `yaml:"keywords"`
+	Home          string            `yaml:"home"`
+	Sources       []string          `yaml:"sources"`
+	Maintainers   []MaintainerEntry `yaml:"maintainers"`
+	Engine        string            `yaml:"engine"`
+	Icon          string            `yaml:"icon"`
+	AppVersion    string            `yaml:"appVersion"`
+	Deprecated    bool              `yaml:"deprecated"`
+	TillerVersion string            `yaml:"tillerVersion"`
+
+	Created time.Time `yaml:"created"`
+	Digest  string    `yaml:"digest"`
+	Urls    []string  `yaml:"urls"`
 }
 
 // Charts is a record of all charts and a few metadata
