@@ -21,17 +21,17 @@ builds:
       - arm64
     ldflags:
       - -s -w -X main.version={{ .Tag }} -X main.commit={{ .Commit }} -X main.date={{ .Date }}
-archive:
-  files:
-    - LICENSE
-    - README.md
-    - plugin.yaml
-  replacements:
-    darwin: darwin
-    linux: linux
-    windows: windows
-    386: i386
-    amd64: x86_64
+archives:
+  - files:
+      - LICENSE
+      - README.md
+      - plugin.yaml
+    replacements:
+      darwin: darwin
+      linux: linux
+      windows: windows
+      386: i386
+      amd64: x86_64
 checksum:
   name_template: 'checksums.txt'
 snapshot:
