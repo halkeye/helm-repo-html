@@ -7,7 +7,8 @@ before:
     # you may remove this if you don't need go generate
     - go generate ./...
 builds:
-  - env:
+  - binary: bin/helm-repo-html
+    env:
       - CGO_ENABLED=0
     goos:
       - linux
@@ -21,10 +22,14 @@ builds:
     ldflags:
       - -s -w -X main.version={{ .Tag }} -X main.commit={{ .Commit }} -X main.date={{ .Date }}
 archive:
+  files:
+    - LICENSE
+    - README.md
+    - plugin.yaml
   replacements:
-    darwin: Darwin
-    linux: Linux
-    windows: Windows
+    darwin: darwin
+    linux: linux
+    windows: windows
     386: i386
     amd64: x86_64
 checksum:
