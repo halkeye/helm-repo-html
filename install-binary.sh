@@ -5,6 +5,7 @@
 PROJECT_NAME="helm-repo-html"
 PROJECT_GH="halkeye/$PROJECT_NAME"
 
+[ -z "$HELM_HOME" ] && HELM_HOME=$(helm env | grep 'HELM_DATA_HOME' | cut -d '=' -f    2 | tr -d '"')
 : ${HELM_PLUGIN_PATH:="$HELM_HOME/plugins/helm-repo-html"}
 
 if [[ $SKIP_BIN_INSTALL == "1" ]]; then
