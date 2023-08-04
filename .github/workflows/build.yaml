@@ -1,5 +1,3 @@
-Below is a simple snippet to use this action in your workflow:
-
 name: goreleaser
 
 on:
